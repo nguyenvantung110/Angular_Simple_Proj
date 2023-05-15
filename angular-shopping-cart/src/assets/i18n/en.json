@@ -1,0 +1,15 @@
+{
+    "title":"Title of angular shopping cart project",
+    "description":"Message of angular shopping cart project",
+    "DEPARTMENT": {
+        "title": "Departmet translate demo"
+      },
+      "table":{
+        "index":"Index",
+        "firstname":"First Name",
+        "lastname":"Last Name",
+        "email":"Email",
+        "address":"Address",
+        "zipcode":"Zipcode"
+      }
+}

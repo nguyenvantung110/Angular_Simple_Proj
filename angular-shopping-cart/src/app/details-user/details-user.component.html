@@ -1,0 +1,59 @@
+<div class="container">
+    <!--      *ngIf="userInfoData?.id"   -->
+    <img [src]="userInfoData?.avatar_Img">
+    <h3>User Name : {{userInfoData?.name}}</h3>
+    <p>User ID: {{userInfoData?.id}}</p>
+    <p>Address: {{userInfoData?.address}}</p>
+    <input class="form-control" [(ngModel)]="searchKey" placeholder="search provinces">
+    <div class="provinces row col-4">
+        <span>Provinces</span>
+        <select class="form-select" #provinces (change)="selectedProvinces()">
+            <option class="text-center" disabled selected>---------- Select Provinces ----------</option>
+            <option value="{{item.Code}}" *ngFor="let item of (listProvinces | searchfilter: searchKey)">
+                {{item.Name}}
+            </option>
+        </select>
+    </div>
+    <br>
+    <div class="districts row col-4">
+        <span>Districts</span>
+        <select class="form-select" #districts (change)="selectedDistricts()">
+            <option class="text-center">---------- Select District ----------</option>
+            <option value="{{item.Code}}" *ngFor="let item of listDistrict">
+                {{item.Name}}
+            </option>
+        </select>
+    </div>
+    <br>
+    <div class="wards row col-4">
+        <span>Wards</span>
+        <select class="form-select" #wards>
+            <option class="text-center">---------- Select Wards ----------</option>
+            <option value="{{item.Code}}" *ngFor="let item of listWard">
+                {{item.Name}}
+            </option>
+        </select>
+    </div>
+    <div class="more-provinces">
+        <span>Provinces</span>
+        <div class="btn-group btn-provinces">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                {{itemProv}}
+            </button>
+            <ul class="dropdown-menu">
+                <li class="box-search"><input class="form-control" [(ngModel)]="searchKey2" placeholder="search provinces"></li>
+                <li (click)="changeProvinces(item.Name)" *ngFor="let item of (listProvinces | searchfilter: searchKey2)">
+                    {{item.Name}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div *ngIf="loader" class="loader-bg">
+    <!-- <div class="loader"></div> -->
+    <div class="loader">
+        <div class="inner one"></div>
+        <div class="inner two"></div>
+        <div class="inner three"></div>
+      </div>
+</div>

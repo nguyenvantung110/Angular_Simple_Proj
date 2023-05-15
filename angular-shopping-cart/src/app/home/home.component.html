@@ -1,0 +1,75 @@
+<div class="container">
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['./cart']">Cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['./login']" (click)="logout()">Logout</a>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-primary" (click)="show()">Show cart data</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-success" (click)="export()">Export exel</button>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-info" (click)="onFocus()">Focus Render 2</button>
+          </li>
+          <li>
+            <select #language (change)="selectedLanguage(language.value)">
+              <option default>English</option>
+              <option>Vienamese</option>
+              <option>Japanese</option>
+            </select>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['./details']">Info</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- For Viewchild -->
+  <app-cart #cart></app-cart> <br>
+  <!-- Input for render 2 focus-->
+  <input class="form-control" type="text">
+  <br>
+  <!-- Change language-->
+  <h3>{{'title' | translate}}</h3>
+  <h5>{{'DEPARTMENT.title' | translate}}</h5>
+  <!-- Table data-->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">{{'table.index' | translate}}</th>
+        <th scope="col">{{'table.firstname' | translate}}</th>
+        <th scope="col">{{'table.lastname' | translate}}</th>
+        <th scope="col">{{'table.email' | translate}}</th>
+        <th scope="col">{{'table.address' | translate}}</th>
+        <th scope="col">{{'table.zipcode' | translate}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cust of dataExport; let i = index">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ cust.firstName }}</td>
+        <td>{{ cust.lastName }}</td>
+        <td>{{ cust.email }}</td>
+        <td>{{ cust.address }}</td>
+        <td>{{ cust.zipcode }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <router-outlet></router-outlet>
+</div>
+

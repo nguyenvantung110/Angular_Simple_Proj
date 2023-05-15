@@ -1,0 +1,15 @@
+{
+    "title":"Dự án angular shopping cart",
+    "description":"Dự án bao gồm các project nhỏ trong angular",
+    "DEPARTMENT": {
+        "title": "Tiêu đề"
+      },
+      "table":{
+        "index":"STT",
+        "firstname":"Họ",
+        "lastname":"Tên",
+        "email":"Email",
+        "address":"Địa chỉ",
+        "zipcode":"Mã bưu chính"
+      }
+}

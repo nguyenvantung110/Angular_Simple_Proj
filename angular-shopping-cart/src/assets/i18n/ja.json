@@ -1,0 +1,15 @@
+{
+    "title":"角度のあるショッピング カート プロジェクト",
+    "description":"プロジェクトには角度のある小さなプロジェクトが含まれています",
+    "DEPARTMENT": {
+        "title": "部署名"
+      },
+      "table":{
+        "index":"索引",
+        "firstname":"ファーストネーム",
+        "lastname":"苗字",
+        "email":"Eメール",
+        "address":"住所",
+        "zipcode":"郵便番号"
+      }
+}
